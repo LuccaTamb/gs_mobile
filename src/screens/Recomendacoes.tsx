@@ -14,10 +14,11 @@ export default function RecomendacoesScreen() {
 
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
-  const { local, tempoInterrupcao, prejuizos } = route.params || {};
+  // const { local, tempoInterrupcao, prejuizos } = route.params || {};
+  const { local, tempoInterrupcao, prejuizos, titulo } = route.params || {};
 
   // Verificar se os parâmetros foram recebidos
-  if (!local || !tempoInterrupcao || prejuizos === undefined) {
+  if (!local || !tempoInterrupcao || prejuizos === undefined || !titulo) {
     Alert.alert("Erro", "Dados incompletos");
     navigation.goBack();
     return null;
@@ -28,6 +29,7 @@ export default function RecomendacoesScreen() {
 
     const novoEvento: EventoEnergia = {
       id: uuidv4(),
+      titulo,
       local,
       tempoInterrupcao,
       prejuizos: prejuizos || "0",

@@ -32,6 +32,7 @@ export default function Prejuizos() {
             local,
             tempoInterrupcao,
             prejuizos: descricao,
+            titulo: route.params.titulo
         });
     };
 

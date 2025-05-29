@@ -34,8 +34,8 @@ export default function PanoramaGeral() {
   const renderItem = ({ item }: { item: EventoEnergia }) => (
     <View style={styles.card}>
 
-      <Text style={styles.titulo}>{item.titulo ? item.titulo : "Título Padrão"}</Text>
-      <Text style={styles.titulo}>{item.titulo || item.local}</Text>
+      <Text style={styles.titulo}>{item.titulo}</Text>
+      <Text style={styles.titulo}>{item.local}</Text>
 
       <Text>⏱️ Tempo sem energia: {item.tempoInterrupcao}</Text>
       <Text>💸 Prejuízos: {item.prejuizos}</Text>

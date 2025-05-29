@@ -34,13 +34,14 @@ export default function Localizacao() {
       (rua.trim() ? ` - ${rua.trim()}` : "");
 
     // navigation.navigate("Tempo", { local: localCompleto });
-    navigation.navigate("Tempo", { local: localCompleto, titulo });
-
+    navigation.navigate("Tempo", {
+      local: localCompleto,
+      titulo: titulo,
+    });
   };
 
   return (
     <View style={styles.container}>
-      
       <Text style={styles.titulo}>Título do Evento 🛑</Text>
       <TextInput
         placeholder="Título do evento"

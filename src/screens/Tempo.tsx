@@ -57,6 +57,7 @@ export default function Tempo() {
     navigation.navigate("Prejuizos", {
       local,
       tempoInterrupcao: tempoDescricao.trim(),
+      titulo: route.params.titulo
     });
   };
 
