@@ -1,3 +1,10 @@
+# FIAP 3ESA
+- Lucca Sabatini Tambellini - RM98169
+- Gabriel Antony Cadima - RM98215
+- Cassio Eduardo Valezzi - RM551059
+
+---
+
 # Aplicativo Mobile
 
 Este é um aplicativo mobile desenvolvido com React Native, Expo e TypeScript, projetado para registrar e consultar acidentes e desastres. As informações são armazenadas localmente no dispositivo utilizando `AsyncStorage`.
