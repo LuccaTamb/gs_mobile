@@ -133,7 +133,7 @@ export default function Tempo() {
             onValueChange={(itemValue) => setMinutos(itemValue)}
             style={styles.picker}
           >
-            {gerarOpcoes(60)}
+            {gerarOpcoes(59)}
           </Picker>
         </View>
       </View>
