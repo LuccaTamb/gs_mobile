@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator, ScrollView, Linking } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  ActivityIndicator,
+  ScrollView,
+  Linking,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { salvarEvento } from "../storage/storage";
 import { EventoEnergia } from "../types";
@@ -45,10 +55,7 @@ export default function RecomendacoesScreen() {
       });
     } catch (error) {
       console.error("Erro ao salvar:", error);
-      Alert.alert(
-        "Erro",
-        "Não foi possível salvar o evento, tente novamente."
-      );
+      Alert.alert("Erro", "Não foi possível salvar o evento, tente novamente.");
     } finally {
       setLoading(false);
     }
@@ -143,6 +150,34 @@ export default function RecomendacoesScreen() {
             situações de risco:
           </Text>
 
+          {/* Cortes de Energia */}
+          <View style={styles.card}>
+            <Text style={styles.cardTitulo}>
+              💡 Cortes de Energia Prolongados
+            </Text>
+            <Text style={styles.cardItem}>
+              • <Text style={styles.destaque}>Kit básico:</Text> Lanterna (não
+              use velas), pilhas, rádio portátil, power bank
+            </Text>
+            <Text style={styles.cardItem}>
+              • <Text style={styles.destaque}>Alimentos:</Text> Mantenha comida
+              não perecível e água (4L/pessoa/dia)
+            </Text>
+            <Text style={styles.cardItem}>
+              • <Text style={styles.destaque}>Proteja aparelhos:</Text> Desligue
+              equipamentos sensíveis da tomada
+            </Text>
+            <Text style={styles.cardItem}>
+              • <Text style={styles.destaque}>Geladeira:</Text> Mantenha fechada
+              - alimentos duram 4h se cheia, 2h se meia
+            </Text>
+            <TouchableOpacity
+              onPress={() => abrirLink("https://www.aneel.gov.br/consumidor")}
+            >
+              <Text style={styles.link}>Direitos do consumidor (ANEEL)</Text>
+            </TouchableOpacity>
+          </View>
+
           {/* Enchentes e Alagamentos */}
           <View style={styles.card}>
             <Text style={styles.cardTitulo}>🌊 Enchentes e Alagamentos</Text>
@@ -229,62 +264,6 @@ export default function RecomendacoesScreen() {
               <Text style={styles.link}>
                 Mapa de áreas de risco em seu estado
               </Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Cortes de Energia */}
-          <View style={styles.card}>
-            <Text style={styles.cardTitulo}>
-              💡 Cortes de Energia Prolongados
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Kit básico:</Text> Lanterna (não
-              use velas), pilhas, rádio portátil, power bank
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Alimentos:</Text> Mantenha comida
-              não perecível e água (4L/pessoa/dia)
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Proteja aparelhos:</Text> Desligue
-              equipamentos sensíveis da tomada
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Geladeira:</Text> Mantenha fechada
-              - alimentos duram 4h se cheia, 2h se meia
-            </Text>
-            <TouchableOpacity
-              onPress={() => abrirLink("https://www.aneel.gov.br/consumidor")}
-            >
-              <Text style={styles.link}>Direitos do consumidor (ANEEL)</Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Incêndios */}
-          <View style={styles.card}>
-            <Text style={styles.cardTitulo}>🔥 Incêndios e Queimadas</Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Prevenção:</Text> Não acumule lixo
-              inflamável, cheque instalações elétricas
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Em caso de fogo:</Text> Abaixe-se
-              (fumaça sobe), cubra nariz com pano úmido
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Escolha segura:</Text> Portas
-              fechadas retardam fogo - feche ao evacuar
-            </Text>
-            <Text style={styles.cardItem}>
-              • <Text style={styles.destaque}>Extintor:</Text> Aprenda a usar
-              (P.A.S.S.: Puxe, Aime, Squeeze, Sweep)
-            </Text>
-            <TouchableOpacity
-              onPress={() =>
-                abrirLink("https://www.bombeiros.sp.gov.br/prevencao-incendio/")
-              }
-            >
-              <Text style={styles.link}>Guia de prevenção a incêndios</Text>
             </TouchableOpacity>
           </View>
 
