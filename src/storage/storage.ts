@@ -28,28 +28,3 @@ export async function buscarEventos(): Promise<EventoEnergia[]> {
         return [];
     }
 }
-
-export async function excluirEventoPorId(id: string): Promise<void> {
-  try {
-    console.log(`[STORAGE] Iniciando exclusão do ID: ${id}`);
-    const eventos = await buscarEventos();
-    
-    console.log(`[STORAGE] IDs antes da exclusão: ${eventos.map(e => e.id).join(', ')}`);
-    
-    const novosEventos = eventos.filter(evento => String(evento.id) !== String(id));
-    
-    console.log(`[STORAGE] IDs após filtro: ${novosEventos.map(e => e.id).join(', ')}`);
-    console.log(`[STORAGE] Total antes: ${eventos.length}, depois: ${novosEventos.length}`);
-
-    if (eventos.length === novosEventos.length) {
-        console.warn(`[STORAGE] AVISO: ID ${id} não foi encontrado!`);
-    }
-
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(novosEventos));
-    console.log(`[STORAGE] Evento ${id} excluído com sucesso!`);
-  } catch (error) {
-    console.error('[STORAGE] ERRO na exclusão:', error);
-    throw error;
-  }
-}
-
